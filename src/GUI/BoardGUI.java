@@ -298,11 +298,7 @@ public class BoardGUI implements ActionListener{
         String path = "\\Images\\" + color + type + ".png";
         ImageIcon imgIcon = null;
         try {
-            //InputStream is = this.getClass().getClassLoader().getResourceAsStream("\\Chess\\src\\GUI" + path);
-            //System.out.println(is);
-            System.out.println(this.getClass().getResource(path));
-            BufferedImage bImage = ImageIO.read(this.getClass().getResource(path));
-//            BufferedImage bImage = ImageIO.read(is);
+            BufferedImage bImage = ImageIO.read(getClass().getResource(path));
             imgIcon = new ImageIcon(bImage.getScaledInstance(90,90,Image.SCALE_SMOOTH));
         }
         catch (IOException e) {
@@ -310,6 +306,7 @@ public class BoardGUI implements ActionListener{
         }
         return imgIcon;
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
